@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-img: url(./assests/mountains-universe-home.png);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  background: var(--bg-img) no-repeat no-repeat;
+  background-size: cover;
+}
+
+.select-universe {
+  --bg-img: url(./assests/mountains-universe.png);
+}
+
+.select-exploration {
+  --bg-img: url(./assests/mountains-universe-exploration.png);
+}
+
+nav {
+  padding: 40px 0 40px 72px;
+  display: flex;
+  gap: 32px;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  gap: 32px;
+  justify-content: center;
+  align-items: center;
+}
+a {
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 22px;
+  color: #c4c4cc;
+  text-decoration: none;
+}
+
+a.active {
+  font-weight: 700;
+  color: #ffffff;
+}
+
+h1 {
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 125%;
+
+  color: #e1e1e6;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  margin-top: 63px;
+  padding-left: 102px;
+  gap: 24px;
+}
+
+button {
+  background: none;
+  border: 2px solid #ffffff;
+  border-radius: 5px;
+
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+
+  padding: 12px 32px;
+
+  cursor: pointer;
+}
+
+p {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  text-align: justify;
+  /* or 29px */
+
+  /* Platform Aliases/Títulos */
+
+  color: #e1e1e6;
+
+  width: 648px;
+}
+
+#app.home {
+  justify-content: center;
+  align-items: center;
+
+  margin-top: 172px;
+}
