@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -30,13 +30,20 @@
         </svg>
 
         <ul>
-          <li><a href="/home" class="active">Home</a></li>
-          <li><a href="/universo">O universo</a></li>
-          <li><a href="/exploracao">Exploração</a></li>
+          <li><a id="home" href="/" onClick="route()">Home</a></li>
+          <li>
+            <a id="universo" href="/universo" onClick="route()">O universo</a>
+          </li>
+          <li>
+            <a id="exploracao" href="/exploracao" onClick="route()"
+              >Exploração</a
+            >
+          </li>
         </ul>
       </nav>
 
       <div id="app"></div>
     </div>
+    <script src="./js/script.js" type="module"></script>
   </body>
 </html>
