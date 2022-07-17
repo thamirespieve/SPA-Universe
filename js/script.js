@@ -1,75 +1,82 @@
-const routes = {
-  '/': '/pages/home.html',
-  '/universo': '/pages/universo.html',
-  '/exploracao': '/pages/exploracao.html'
-}
+import { Router } from './router.js'
 
-function route(event) {
-  event = event || window.event
+const router = new Router()
 
-  event.preventDefault()
+// const routes = {
+//   '/': '/pages/home.html',
+//   '/universo': '/pages/universo.html',
+//   '/exploracao': '/pages/exploracao.html'
+// }
 
-  console.log(event.target.href)
-  window.history.pushState({}, '', event.target.href)
+router.add('/', '/pages/home.html')
+router.add('/universo', '/pages/universo.html')
+router.add('/exploracao', '/pages/exploracao.html')
+// function route(event) {
+//   event = event || window.event
 
-  handle()
-}
+//   event.preventDefault()
 
-function handle() {
-  const { pathname } = window.location
+//   console.log(event.target.href)
+//   window.history.pushState({}, '', event.target.href)
 
-  const route = routes[pathname]
+//   handle()
+// }
 
-  fetch(`http://127.0.0.1:5500${route}`)
-    .then(response => response.text())
-    .then(html => {
-      const page = document.querySelector('#app')
-      const container = document.querySelector('.container')
-      const homePage = document.querySelector('#home')
-      const universoPage = document.querySelector('#universo')
-      const exploracaoPage = document.querySelector('#exploracao')
-      switch (pathname) {
-        case '/':
-          homePage.classList.add('active')
-          universoPage.classList.remove('active')
-          exploracaoPage.classList.remove('active')
+// function handle() {
+//   const { pathname } = window.location
 
-          page.classList.add('home')
-          container.classList.remove('select-universe')
-          container.classList.remove('select-exploration')
-          break
-        case '/universo':
-          universoPage.classList.add('active')
-          exploracaoPage.classList.remove('active')
-          homePage.classList.remove('active')
+//   const route = routes[pathname]
 
-          container.classList.add('select-universe')
-          container.classList.remove('select-exploration')
-          page.classList.remove('home')
-          break
-        case '/exploracao':
-          exploracaoPage.classList.add('active')
-          universoPage.classList.remove('active')
-          homePage.classList.remove('active')
+//   fetch(`http://127.0.0.1:5500${route}`)
+//     .then(response => response.text())
+//     .then(html => {
+//       const page = document.querySelector('#app')
+//       const container = document.querySelector('.container')
+//       const homePage = document.querySelector('#home')
+//       const universoPage = document.querySelector('#universo')
+//       const exploracaoPage = document.querySelector('#exploracao')
+//       switch (pathname) {
+//         case '/':
+//           homePage.classList.add('active')
+//           universoPage.classList.remove('active')
+//           exploracaoPage.classList.remove('active')
 
-          container.classList.add('select-exploration')
-          container.classList.remove('select-universe')
-          page.classList.remove('home')
-          break
+//           page.classList.add('home')
+//           container.classList.remove('select-universe')
+//           container.classList.remove('select-exploration')
+//           break
+//         case '/universo':
+//           universoPage.classList.add('active')
+//           exploracaoPage.classList.remove('active')
+//           homePage.classList.remove('active')
 
-        default:
-          page.classList.add('home')
+//           container.classList.add('select-universe')
+//           container.classList.remove('select-exploration')
+//           page.classList.remove('home')
+//           break
+//         case '/exploracao':
+//           exploracaoPage.classList.add('active')
+//           universoPage.classList.remove('active')
+//           homePage.classList.remove('active')
 
-          break
-      }
+//           container.classList.add('select-exploration')
+//           container.classList.remove('select-universe')
+//           page.classList.remove('home')
+//           break
 
-      page.innerHTML = html
-    })
-}
+//         default:
+//           page.classList.add('home')
 
-handle()
+//           break
+//       }
+
+//       page.innerHTML = html
+//     })
+// }
+
+router.handle()
 
 // //Aciona um evento de click para os botões de voltar do navegador
-window.onpopstate = () => handle()
+window.onpopstate = () => router.handle()
 //Executando e eportando a função route para o html
-window.route = () => route()
+window.route = () => router.route()
