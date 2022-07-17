@@ -19,7 +19,7 @@ export class Router {
 
     const route = this.routes[pathname]
 
-    fetch(`http://127.0.0.1:5500${route}`)
+    fetch(`${route}`)
       .then(response => response.text())
       .then(html => {
         const page = document.querySelector('#app')

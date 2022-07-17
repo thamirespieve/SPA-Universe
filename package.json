@@ -1,0 +1,23 @@
+{
+  "name": "SPA-Universe",
+  "version": "1.0.0",
+  "description": "Construindo uma SPA sobre universo  utilizando html, css e javaScript.",
+  "main": "index.js",
+  "scripts": {
+    "start": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thamirespieve/SPA-Universe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thamirespieve/SPA-Universe/issues"
+  },
+  "homepage": "https://github.com/thamirespieve/SPA-Universe#readme",
+  "dependencies": {
+    "lite-server": "^2.6.1"
+  }
+}
